@@ -1,3 +1,17 @@
-body {
-    background-color:pink;
+
+#header {
+    height: 10vh;
+    background-color:orange;
+    
+}
+
+.content {
+    height:100%;
+    border: 1px black dotted;
+    display:flex;
+}
+
+#cartImg {
+    
+    border: 1px black solid;
 }
