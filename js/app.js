@@ -58,13 +58,21 @@ for (i=0;i<items.length;i++){
 
     var productName = document.createElement('h3');
     productName.className = 'productName';
+    productName.style.cssText = "display:inline;margin-left: 1vw;"
+
+    var productDescription = document.createElement ('p');
+    productDescription.className = 'productDescription';
+    productDescription.style.cssText = "font-size:12px;font-weight:normal; color: rgba(0,0,0,.4);"
 
     for (key in items[i]){
         if (key==='product'){
             productName.innerHTML = items[i][key];
+        }else if (key ==='description'){
+            productDescription.innerHTML = items[i][key];
         }
     }
     newItem.appendChild (productName);
+    productName.appendChild (productDescription);
 }
 
 cartList.style.cssText = "display: flex;flex-direction:column;margin: 10vh auto;"
