@@ -47,7 +47,7 @@ for (i=0;i<items.length;i++){
     
     var productImg = document.createElement ('img');
     productImg.className = "productImg";
-    productImg.style.cssText = 'width: 9%;height:10vh;';
+    productImg.style.cssText = 'width: 75px;height:75px;';
 
     for (key in items[i]){
         if (key==='imgUrl'){
@@ -62,17 +62,27 @@ for (i=0;i<items.length;i++){
 
     var productDescription = document.createElement ('p');
     productDescription.className = 'productDescription';
-    productDescription.style.cssText = "font-size:12px;font-weight:normal; color: rgba(0,0,0,.4);"
+    productDescription.style.cssText = "font-size:12px;font-weight:normal; color: rgba(0,0,0,.4);margin-right: 40px;"
+    var price = document.createElement ('div');
+    price.className = 'price';
+    price.style.cssText = "margin-left:auto;text-align:right;align-self:center;font-size:18px;"
 
     for (key in items[i]){
         if (key==='product'){
             productName.innerHTML = items[i][key];
         }else if (key ==='description'){
             productDescription.innerHTML = items[i][key];
+        }else if (key ==='price'){
+            price.innerHTML = '$'+items[i][key];
         }
     }
     newItem.appendChild (productName);
     productName.appendChild (productDescription);
+    newItem.appendChild (price);
+
+    
+
+
 }
 
 cartList.style.cssText = "display: flex;flex-direction:column;margin: 10vh auto;"
