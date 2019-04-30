@@ -64,9 +64,9 @@ for (i=0;i<items.length;i++){
     var productDescription = document.createElement ('p');
     productDescription.className = 'productDescription';
     productDescription.style.cssText = "font-size:12px;font-weight:normal; color: rgba(0,0,0,.4);margin-right: 40px;display:none;"
-    var price = document.createElement ('div');
-    price.className = 'price';
-    price.style.cssText = "margin-left:auto;text-align:right;align-self:center;font-size:18px;color:rgba(0,0,0,.4);"
+    var cost = document.createElement ('div');
+    cost.className = 'price';
+    cost.style.cssText = "margin-left:auto;text-align:right;align-self:center;font-size:18px;color:rgba(0,0,0,.4);"
 
 
     for (key in items[i]){
@@ -75,22 +75,26 @@ for (i=0;i<items.length;i++){
         }else if (key ==='description'){
             productDescription.innerHTML = items[i][key];
         }else if (key ==='price'){
-            price.innerHTML = '$'+items[i][key];
+            cost.innerHTML = '$'+items[i][key];
         }
     }
     newItem.appendChild (productName);
     productName.appendChild (productDescription);
-    newItem.appendChild (price);
+    newItem.appendChild (cost);
 
     // for (key in items[i]){
-    //     var howMuchArr = [];
-    //     if (key==='price'){
-    //         howMuchArr.push(items[i][key]);
+
+    //     if (items[i].hasOwnProperty('price')===true){
+    //         // console.log(items[i][key]);
+    //         howMuch+=items[i][key];
+    //         // console.log(howMuch);
     //     }
+    //     console.log (howMuch);
     // }
 
-    // Just need to figure out this last bit! this just produces an empty array when console logged...
+    // // Why doesn't it work for for/in loops?
 }
+
 
 function showHide (){
     var child = this.querySelector ('p');
@@ -99,6 +103,13 @@ function showHide (){
     }else{
         child.style.display = 'none';
     }
+}
+
+var howMuch = 0;
+
+for (i=0;i<items.length;i++){
+    // console.log(items[i].price);
+    howMuch +=items[i].price;
 }
 
 cartList.style.cssText = "display: flex;flex-direction:column;margin: 10vh auto;"
@@ -111,12 +122,11 @@ subtotal.style.cssText = "display:flex;flex-direction:row;justify-content:space-
 
 cartList.appendChild (subtotal);
 
-var subtotalValue = document.createElement ('div');
+var subtotalValue = document.createElement ('h3');
 subtotalValue.id = 'subtotalValue';
 
 
-subtotalValue.innerHTML = '<h3>$</h3>';
-subtotalValue.style.cssText = ""
+subtotalValue.innerHTML = howMuch;
 subtotal.appendChild (subtotalValue);
 
 // console.log (howMuchArr);

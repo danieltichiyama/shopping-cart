@@ -7,14 +7,14 @@ body {
 #header {
     height: 10vh;
     background-color:orange;
-    margin:0;
-    width: 100vw;
+    margin:auto;
+    width: 80vw;
     color:rgba(0,0,0,.4);
 }
 
 .content {
     height:100%;
-    border: 1px black dotted;
+    /* border: 1px black dotted; */
     display:flex;
     flex-direction: row;
     align-items: center;
@@ -28,4 +28,8 @@ body {
 
 h1 {
     /* vertical-align: middle; */
+}
+
+#subtotalValue::before {
+    content:"$";
 }
