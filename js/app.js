@@ -119,4 +119,4 @@ subtotalValue.innerHTML = '<h3>$</h3>';
 subtotalValue.style.cssText = ""
 subtotal.appendChild (subtotalValue);
 
-console.log (howMuchArr);
+// console.log (howMuchArr);
