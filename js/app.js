@@ -38,11 +38,10 @@ var items = [
     }
 ];
 
-
 for (i=0;i<items.length;i++){
     var newItem = document.createElement ('li');
     newItem.className = 'itemInCart';
-    newItem.style.cssText = "display: flex; flex-direction:row;border-top: 2px solid rgba(0,0,0,.2); ;min-height:10vh;width:75vw;list-style:none;padding:1vh 1vw;"
+    newItem.style.cssText = "display: flex; flex-direction:row;border-top: 2px solid rgba(0,0,0,.2);min-height:10vh;width:75vw;list-style:none;padding:1vh 1vw;"
     cartList.appendChild (newItem);
     
     var productImg = document.createElement ('img');
@@ -60,12 +59,15 @@ for (i=0;i<items.length;i++){
     productName.className = 'productName';
     productName.style.cssText = "display:inline;margin-left: 1vw;"
 
+    productName.addEventListener ('click', showHide);
+
     var productDescription = document.createElement ('p');
     productDescription.className = 'productDescription';
-    productDescription.style.cssText = "font-size:12px;font-weight:normal; color: rgba(0,0,0,.4);margin-right: 40px;"
+    productDescription.style.cssText = "font-size:12px;font-weight:normal; color: rgba(0,0,0,.4);margin-right: 40px;display:none;"
     var price = document.createElement ('div');
     price.className = 'price';
-    price.style.cssText = "margin-left:auto;text-align:right;align-self:center;font-size:18px;"
+    price.style.cssText = "margin-left:auto;text-align:right;align-self:center;font-size:18px;color:rgba(0,0,0,.4);"
+
 
     for (key in items[i]){
         if (key==='product'){
@@ -80,10 +82,41 @@ for (i=0;i<items.length;i++){
     productName.appendChild (productDescription);
     newItem.appendChild (price);
 
-    
+    // for (key in items[i]){
+    //     var howMuchArr = [];
+    //     if (key==='price'){
+    //         howMuchArr.push(items[i][key]);
+    //     }
+    // }
 
+    // Just need to figure out this last bit! this just produces an empty array when console logged...
+}
 
+function showHide (){
+    var child = this.querySelector ('p');
+    if (child.style.display === 'none'){
+        child.style.display ='block';
+    }else{
+        child.style.display = 'none';
+    }
 }
 
 cartList.style.cssText = "display: flex;flex-direction:column;margin: 10vh auto;"
 
+var subtotal = document.createElement ('li');
+subtotal.id='subtotal';
+subtotal.innerHTML = '<h3>Subtotal</h3>';
+subtotal.style.cssText = "display:flex;flex-direction:row;justify-content:space-between;border-top:2px solid rgba(0,0,0,.2);min-height:10vh;width:75vw;list-style:none;padding:1vh 1vw";
+
+
+cartList.appendChild (subtotal);
+
+var subtotalValue = document.createElement ('div');
+subtotalValue.id = 'subtotalValue';
+
+
+subtotalValue.innerHTML = '<h3>$</h3>';
+subtotalValue.style.cssText = ""
+subtotal.appendChild (subtotalValue);
+
+console.log (howMuchArr);
